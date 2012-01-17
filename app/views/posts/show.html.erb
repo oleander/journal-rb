@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @post.project_id %>
+</p>
+
+<p>
+  <b>Started at:</b>
+  <%= @post.started_at %>
+</p>
+
+<p>
+  <b>Ended at:</b>
+  <%= @post.ended_at %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @post.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
