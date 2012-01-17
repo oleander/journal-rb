@@ -14,4 +14,5 @@ end
 
 gem "jquery-rails"
 gem "capistrano"
+gem "uuid"
 gem "ruby-debug19", :require => "ruby-debug"
