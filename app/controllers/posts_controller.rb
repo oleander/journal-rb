@@ -1,8 +1,17 @@
 class PostsController < ApplicationController
+  before_filter only: [:new, :create] do
+    @project = Project.find(params[:project_id])
+  end
+  
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @project = current_user.
+      projects.
+      where("projects.id = ?", params[:project_id]).
+      includes(:posts).
+      first
+      
 
     respond_to do |format|
       format.html # index.html.erb

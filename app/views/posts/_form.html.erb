@@ -1,33 +1,6 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
-  </div>
-  <div class="field">
-    <%= f.label :started_at %><br />
-    <%= f.date_select :started_at %>
-  </div>
-  <div class="field">
-    <%= f.label :ended_at %><br />
-    <%= f.date_select :ended_at %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for([@project, @post]) do |f| %>
+  <%= f.input :started_at %>
+  <%= f.input :ended_at %>
+  <%= f.input :body, :as => :text %>
+  <%= f.button :submit %>
 <% end %>

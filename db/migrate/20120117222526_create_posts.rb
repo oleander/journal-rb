@@ -8,5 +8,9 @@ class CreatePosts < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :posts, :project_id
+    add_index :users, :uuid
+    add_index :projects, :user_id
   end
 end

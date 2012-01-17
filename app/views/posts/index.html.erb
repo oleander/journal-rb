@@ -11,14 +11,14 @@
     <th></th>
   </tr>
 
-<% @posts.each do |post| %>
+<% @project.posts.each do |post| %>
   <tr>
     <td><%= post.project_id %></td>
     <td><%= post.started_at %></td>
     <td><%= post.ended_at %></td>
     <td><%= post.body %></td>
     <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Edit', edit_project_post_path(@project, post) %></td>
     <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_project_post_path(@project) %>

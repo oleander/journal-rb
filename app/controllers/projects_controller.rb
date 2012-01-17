@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.projects
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +40,9 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(params[:project])
+    @project = Project.new(params[:project].merge({
+      user: current_user
+    }))
 
     respond_to do |format|
       if @project.save
