@@ -4,9 +4,11 @@ module PostsHelper
     return if @project.id.nil?
     link = link_to "New Post", new_project_post_path(@project), class: "paginate"
     if pag.empty?
-      "#{link} | #{content_tag(:span, "No more pages", class: "raw")}".html_safe 
+      raw = link 
     else
-      "#{pag} | #{link}".html_safe
+      raw = "#{pag} | #{link}"
     end
+    
+    (raw + " | " + (link_to "Export project", project_posts_path(@project, format: "pdf"), class: "paginate")).html_safe
   end
 end

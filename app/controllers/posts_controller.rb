@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  respond_to :html
+  respond_to :html, :pdf
   
   before_filter do
     @project = current_user.
@@ -10,11 +10,21 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = @project.
-      posts.
-      order("posts.created_at DESC").
-      page(params[:page]).
-      per(5)
+    @posts = @project.posts.order("posts.created_at DESC")
+      
+    unless params[:format] == "pdf"
+      @posts = @posts.page(params[:page]).per(5)
+    end
+    
+    respond_with(@posts) do |f|
+      f.pdf do
+        render ({
+          pdf: "#{@project.to_param}-log.pdf", 
+          template: "posts/index.pdf.erb", 
+          layout: "pdf.html"
+        })
+      end
+    end
   end
 
   def show

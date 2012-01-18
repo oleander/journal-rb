@@ -1,0 +1,42 @@
+<% # encoding: utf-8 %>
+<style type="text/css" media="screen">
+  h1 {
+    letter-spacing: 0px !important;
+  }
+</style>
+
+<h1>Posts for the <%= @project.name %> project (<%= @project.hours || 0 %> h)</h1>
+<p>
+  <ul>
+    <li>
+      By: <%= current_user.name || "Random Dude" %>
+    </li>
+    <li>
+      Created: <%= @project.created_at %>
+    </li>
+    <li>
+      Time spent on project: <%= @project.hours %>h
+    </li>
+    <li>
+      Total amount of posts: <%= @posts.count %>
+    </li>
+  </ul>
+</p>
+
+<% if @posts.empty? %>
+  <p>
+    No posts, sorry.
+  </p>
+<% else %>
+
+  <% @posts.each do |post| %>
+      <h2>
+        <%= post.created_at.strftime("%B %d") %> - 
+        <%= post.diff %>h 
+      </h2>
+      <hr class="dashed">
+      <%= Maruku.new(post.body).to_html.html_safe %>
+      <hr>
+  <% end %>
+
+<% end %>

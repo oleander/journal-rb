@@ -7,12 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= params[:controller]%>-controller">
-
   <div id="main" data-yield="main">
      <div id="wrap">
        <%= yield %>
      </div>
    </div>
-
 </body>
 </html>
