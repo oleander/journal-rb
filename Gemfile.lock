@@ -144,6 +144,7 @@ GEM
     uuid (2.3.4)
       macaddr (~> 1.0)
     wicked_pdf (0.7.2)
+    wkhtmltopdf-binary (0.9.5.3)
 
 PLATFORMS
   ruby
@@ -165,3 +166,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   uuid
   wicked_pdf
+  wkhtmltopdf-binary
