@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  after_initialize :generate_uuid
-  has_many :projects
+  before_create :generate_uuid
+  has_many :projects, dependent: :destroy
+  has_many :authentications, dependent: :destroy
+  
 private
 
   def generate_uuid
