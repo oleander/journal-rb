@@ -3,6 +3,10 @@ class Post < ActiveRecord::Base
   validates_presence_of :body, :ended_at, :started_at, :project
   validate :min_post_span, :min_length_body
   
+  def diff
+    (ended_at.to_i - started_at.to_i) / (60*60)
+  end
+  
 private
   def min_post_span
     if (started_at.to_i - ended_at.to_i).zero?

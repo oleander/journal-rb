@@ -1,29 +1,16 @@
-<h1>Listing posts</h1>
+<h1>Posts for the <%= @project.name %> project (<%= @project.hours %>h)</h1>
 
-<table>
-  <tr>
-    <th>Project</th>
-    <th>Started at</th>
-    <th>Ended at</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p>
+  <%= paginator(@posts) %>
+</p>
 
-<% @project.posts.each do |post| %>
-  <tr>
-    <td><%= post.project_id %></td>
-    <td><%= post.started_at %></td>
-    <td><%= post.ended_at %></td>
-    <td><%= post.body %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_project_post_path(@project, post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+<% @posts.each do |post| %>
+    <h2><%= time_ago_in_words(post.started_at)%> - <%= post.diff %>h <%= link_to image_tag("edit.png", class: "edit-icon"), edit_project_post_path(@project, post), class: "post", title: "Edit post" %> <%= link_to  image_tag("destroy.png", class: "destroy-icon"), project_post_path(@project, post), confirm: "Are you sure?", method: :delete, class: "post", title: "Destroy post" %></h2>
+    <hr class="dashed">
+    <%= Maruku.new(post.body).to_html.html_safe %>
+    <hr>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New Post', new_project_post_path(@project) %>
+<p>
+  <%= paginator(@posts) %>
+</p>
