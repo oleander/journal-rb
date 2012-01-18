@@ -1,6 +1,6 @@
 Journal::Application.routes.draw do
-  resources :projects do
-    resources :posts
+  resources :projects, except: [:show] do
+    resources :posts, except: [:show]
   end
   
   root to: "projects#index"

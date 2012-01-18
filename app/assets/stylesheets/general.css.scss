@@ -29,14 +29,6 @@ body {
     border-right: 1px dotted #cccccc;
     border-bottom: 1px dotted #cccccc;
     border-left: 1px dotted #cccccc; }
-    #main #wrap nav {
-      position: absolute;
-      top: 48px;
-      right: 65px; }
-      #main #wrap nav a.previous:before {
-        content: "\25C0  "; }
-      #main #wrap nav a.next:after {
-        content: " \25B6"; }
     #main #wrap ul {
       margin: 0;
       padding: 10px; }
@@ -178,7 +170,15 @@ h1 {
   letter-spacing: 1px;
   color: #777777; }
 
-nav a {
+nav {
+  display: inline;
+}
+
+a.paginate {
+  color: #373737;
+}
+
+nav a, a.paginate {
   color: #ffaa31;
   text-transform: uppercase;
   font-weight: bold;
@@ -187,7 +187,7 @@ nav a {
   text-decoration: none;
   letter-spacing: 1px;
   cursor: pointer; }
-  nav a:hover {
+  nav a:hover, a.paginate {
     color: #bbbbbb; }
 
 .total-clock {

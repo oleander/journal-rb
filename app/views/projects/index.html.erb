@@ -1,23 +1,13 @@
-<h1>Listing projects</h1>
+<h1>Your projects (<%= @projects.count %>)</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= link_to "New post", new_project_post_path(project) %></td>
-    <td><%= link_to "Show posts", project_posts_path(project) %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Project', new_project_path %>
+<ul>
+  <% @projects.each do |project| %>
+    <li> 
+      <%= project.name %> | <%= link_to "New post", new_project_post_path(project) %> | <%= link_to "Show posts", project_posts_path(project) %>
+    </li>
+  <% end %>
+</ul>
+<p>
+  <%= project_paginator(@projects) %>
+</p>

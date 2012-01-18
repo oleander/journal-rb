@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  respond_to :html
+  
   before_filter do
     @project = current_user.
       projects.
@@ -8,7 +10,11 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = @project.posts.order("posts.created_at DESC").page(params[:page]).per(10)
+    @posts = @project.
+      posts.
+      order("posts.created_at DESC").
+      page(params[:page]).
+      per(5)
   end
 
   def show
@@ -29,16 +35,20 @@ class PostsController < ApplicationController
     }))
     
     if @post.save
-      redirect_to project_posts_path, notice: "Post was successfully created."
-    end    
+      redirect_to project_posts_path, notice: "Post was successfully created."; return
+    end
+    
+    respond_with(@post)
   end
 
   def update
     @post = @project.posts.find(params[:id])
     
     if @post.update_attributes(params[:post])
-      redirect_to project_posts_path, notice: "Post was successfully created."
+      redirect_to project_posts_path, notice: "Post was successfully created."; return
     end    
+    
+    respond_with(@post)
   end
 
   def destroy
