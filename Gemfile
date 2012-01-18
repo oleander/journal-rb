@@ -4,7 +4,6 @@ gem "rails", "3.2.0.rc2"
 
 # DB
 gem "mysql2", "~> 0.3.7"
-gem "sqlite3"
 
 # View
 gem "haml"
@@ -27,6 +26,7 @@ gem "rack", git: "https://github.com/rack/rack.git", ref: "e20baec005238f9876281
 gem "omniauth-google"
 gem "omniauth", "~> 1.0.1", git: "git://github.com/intridea/omniauth.git"
 
-group :development do
+group :development, :test do
   gem "ruby-debug19", require: "ruby-debug"
+  gem "sqlite3"
 end
