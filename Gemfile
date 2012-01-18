@@ -21,6 +21,7 @@ gem "jquery-rails"
 
 gem "capistrano"
 gem "uuid"
+gem "rack", git: "https://github.com/rack/rack.git", ref: "e20baec005238f9876281c0d083fe5a4e01aa034" 
 
 # Authentication
 gem "omniauth-google"
