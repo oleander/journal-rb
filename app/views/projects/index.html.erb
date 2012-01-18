@@ -4,7 +4,11 @@
 <ul>
   <% @projects.each do |project| %>
     <li> 
-      <%= project.name %> | <%= link_to "New post", new_project_post_path(project) %> | <%= link_to "Show posts", project_posts_path(project) %>
+      <%= project.name %> | 
+      <%= link_to "New post", new_project_post_path(project) %> | 
+      <%= link_to "Show posts", project_posts_path(project) %> |
+      <%= link_to "Edit", edit_project_path(project) %> |
+      <%= link_to "Destroy", project_path(project), confirm: "Are you sure?", method: :delete, title: "Destroy" %>
     </li>
   <% end %>
 </ul>

@@ -178,7 +178,7 @@ a.paginate {
   color: #373737;
 }
 
-nav a, a.paginate {
+nav a, a.paginate, span.raw {
   color: #ffaa31;
   text-transform: uppercase;
   font-weight: bold;
@@ -187,9 +187,12 @@ nav a, a.paginate {
   text-decoration: none;
   letter-spacing: 1px;
   cursor: pointer; }
-  nav a:hover, a.paginate {
+  nav a:hover, a.paginate, span.raw {
     color: #bbbbbb; }
-
+    
+span.raw {
+  cursor: default !important;
+}
 .total-clock {
   color: #777777;
   font-size: 1.5em;
