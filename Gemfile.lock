@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/intridea/omniauth.git
+  revision: 7840608a02a91342da7c286643bb0d35c884668d
+  specs:
+    omniauth (1.0.2)
+      hashie (~> 1.2)
+      rack
+
+GIT
   remote: git://github.com/mileszs/wicked_pdf.git
   revision: 9c10e04556585a67a954c95536d8c1ad5aaf1154
   specs:
@@ -55,6 +63,7 @@ GEM
     execjs (1.2.13)
       multi_json (~> 1.0)
     haml (3.1.4)
+    hashie (1.2.0)
     highline (1.6.9)
     hike (1.2.1)
     i18n (0.6.0)
@@ -87,6 +96,14 @@ GEM
     net-ssh (2.3.0)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    oauth (0.4.5)
+    omniauth-google (1.0.1)
+      multi_json
+      omniauth (~> 1.0.0)
+      omniauth-oauth
+    omniauth-oauth (1.0.0)
+      oauth
+      omniauth (~> 1.0)
     polyglot (0.3.3)
     rack (1.4.0)
     rack-cache (1.1)
@@ -162,6 +179,8 @@ DEPENDENCIES
   kaminari
   maruku
   mysql2 (~> 0.3.7)
+  omniauth (~> 1.0.1)!
+  omniauth-google
   rails (= 3.2.0.rc2)
   ruby-debug19
   sass

@@ -22,6 +22,10 @@ gem "jquery-rails"
 gem "capistrano"
 gem "uuid"
 
+# Authentication
+gem "omniauth-google"
+gem "omniauth", "~> 1.0.1", git: "git://github.com/intridea/omniauth.git"
+
 group :development do
   gem "ruby-debug19", require: "ruby-debug"
 end
