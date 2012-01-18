@@ -2,8 +2,11 @@ source "https://rubygems.org"
 
 gem "rails", "3.2.0.rc2"
 gem "sqlite3"
+
+# View
 gem "haml"
 gem "sass"
+gem "kaminari"
 
 group :assets do
   gem "sass-rails",   "~> 3.2.3"
