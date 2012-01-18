@@ -1,8 +1,11 @@
-<div id="editor">
-<div id="toolbar" class="wmd-toolbar"></div>
-<textarea id="input" class="wmd-input" rows="30" cols="84"></textarea>
-<div id="tools">
-</div>
-</div>
-<div id="preview" class="wmd-preview">
-</div>
+<%= simple_form_for([@project, @post]) do |f| %>
+  <%= f.input :started_at, discard_minute: true, required: false, label: false %> 
+  <%= f.input :ended_at, discard_minute: true, required: false, label: false %>
+  <div id="editor">
+    <div id="toolbar" class="wmd-toolbar"></div>
+    <%= f.input :body, label: false, input_html: {id: "input", class: "wmd-input", rows: "30", cols: "84", placeholder: "What's up?"} %>
+    <div id="tools"></div>
+  </div>
+  <div id="preview" class="wmd-preview"></div>
+  <%= f.button :submit %>
+<% end %>

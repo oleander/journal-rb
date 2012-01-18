@@ -5,8 +5,6 @@ $(document).ready(function() {
     'debug': true
     });
   });
+  
+  new WMD("input", "toolbar", { preview: "preview" });
 });
-
-  window.onload = function() {
-    new WMD("input", "toolbar", { preview: "preview" });
-  };
