@@ -1,6 +1,8 @@
-<%= simple_form_for([@project, @post]) do |f| %>
-  <%= f.input :started_at, discard_minute: true %> 
-  <%= f.input :ended_at, discard_minute: true %>
-  <%= f.input :body, :as => :text %>
-  <%= f.button :submit %>
-<% end %>
+<div id="editor">
+<div id="toolbar" class="wmd-toolbar"></div>
+<textarea id="input" class="wmd-input" rows="30" cols="84"></textarea>
+<div id="tools">
+</div>
+</div>
+<div id="preview" class="wmd-preview">
+</div>

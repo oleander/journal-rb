@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require "jquery.syntaxhighlighter.min.js"
+//= require "showdown.js"
+//= require "wmd.js"
+//= require "markdown.js"
+//= require "general.js"
