@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/mileszs/wicked_pdf.git
+  revision: 9c10e04556585a67a954c95536d8c1ad5aaf1154
+  specs:
+    wicked_pdf (0.7.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -143,7 +149,6 @@ GEM
       multi_json (>= 1.0.2)
     uuid (2.3.4)
       macaddr (~> 1.0)
-    wicked_pdf (0.7.2)
     wkhtmltopdf-binary (0.9.5.3)
 
 PLATFORMS
@@ -165,5 +170,5 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.0.3)
   uuid
-  wicked_pdf
+  wicked_pdf!
   wkhtmltopdf-binary
