@@ -6,7 +6,16 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body id="<%= params[:controller]%>-controller">
+<body id="<%= params[:controller]%>-controller" class="<%= params[:action]%>-action">
+  
+  <% if flash.present? %>
+    <% flash.keys.each do |key| %>
+      <div id="note">
+          <%= flash[key] %>
+      </div>    
+    <% end %>
+  <% end %>
+  
   <div id="main" data-yield="main">
      <div id="wrap">
        <%= yield %>
