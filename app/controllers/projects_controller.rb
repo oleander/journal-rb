@@ -5,10 +5,6 @@ class ProjectsController < ApplicationController
     @projects = current_user.projects.page(params[:page]).per(10)
   end
   
-  def show
-    @project = current_user.projects.find(params[:id])
-  end
-
   def new
     @project = Project.new
   end
