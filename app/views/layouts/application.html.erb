@@ -12,14 +12,17 @@
     <% flash.keys.each do |key| %>
       <div id="note">
           <%= flash[key] %>
-      </div>    
+      </div>
     <% end %>
   <% end %>
   
   <div id="main" data-yield="main">
-     <div id="wrap">
-       <%= yield %>
-     </div>
-   </div>
+    <div id="wrap">
+      <%= yield %>
+    </div>
+    <footer>
+      <%= link_to "Contact", "http://github.com/oleander" %> | <%= link_to "Fork me", "http://github.com/oleander/journal-rb" %>
+    </footer>
+  </div>
 </body>
 </html>
