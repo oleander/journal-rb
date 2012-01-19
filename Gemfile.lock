@@ -173,6 +173,7 @@ GEM
     uuid (2.3.4)
       macaddr (~> 1.0)
     wkhtmltopdf-binary (0.9.5.3)
+    wkhtmltopdf-heroku (0.1.3)
 
 PLATFORMS
   ruby
@@ -198,3 +199,4 @@ DEPENDENCIES
   uuid
   wicked_pdf!
   wkhtmltopdf-binary
+  wkhtmltopdf-heroku
