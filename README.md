@@ -15,7 +15,3 @@ Time journal for [a bachelor thesis](http://www.chalmers.se/cse/SV/utbildning/gr
 - Mardown support with live preview.
 - Authentication using Google OAuth.
 - PDF project exporter.
-
-## Live demo
-
-[journal.oleander.nu](http://journal.oleander.nu)

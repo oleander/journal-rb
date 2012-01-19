@@ -50,7 +50,7 @@ namespace :deploy do
     run "cp -ax #{shared_path}/database.yml #{release_path}/config/"
   end
   
-  after "deploy:update", "deploy:assets"
+  after "deploy:update", "deploy:copy_files"
+  after "deploy:copy_files", "deploy:assets"
   after "deploy:assets", "deploy:cleanup"
-  after "deploy:cleanup", "deploy:copy_files"
 end
