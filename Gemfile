@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "3.2.0"
+gem "rails", "~> 3.2.1"
 
 # DB
 gem "mysql"#, "0.3.7"
@@ -16,7 +16,7 @@ gem "sass-rails",   "~> 3.2.3"
 gem "coffee-rails", "~> 3.2.0"
 gem "uglifier", ">= 1.0.3"
 gem "jquery-rails"
-
+# gem "activemodel"
 gem "capistrano"
 gem "uuid"
 gem "rack", git: "https://github.com/rack/rack.git", ref: "e20baec005238f9876281c0d083fe5a4e01aa034" 
