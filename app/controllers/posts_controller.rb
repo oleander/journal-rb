@@ -5,13 +5,19 @@ class PostsController < ApplicationController
     @project = current_user.
       projects.
       joins(:posts).
-      select("projects.*, SUM(TIME_TO_SEC(TIMEDIFF(posts.ended_at, posts.started_at))/3600) as hours").
+      select("projects.*, SUM(HOUR(TIMEDIFF(posts.ended_at, posts.started_at))) as hours").
       find(params[:project_id])
   end
   
   def index
+    time = Time.zone.now
     @posts = @project.posts.order("posts.created_at DESC")
-      
+    @week = Post.select("SUM(HOUR(TIMEDIFF(posts.ended_at, posts.started_at))) as hours").
+      where(project_id: params[:project_id]).
+      group("posts.project_id").
+      where("posts.started_at BETWEEN ? and ?", time.beginning_of_week, time.end_of_week).first.try(:hours).to_i.round(1)
+    @average = (@project.hours.to_f / ((time.to_f - @project.created_at.to_i) / (60 * 60 * 7))).round(1)
+    
     unless params[:format] == "pdf"
       @posts = @posts.page(params[:page]).per(5)
     end

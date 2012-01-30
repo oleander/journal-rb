@@ -1,4 +1,4 @@
-<h1>Posts for the <%= @project.name %> project (<%= @project.hours || 0 %> h)</h1>
+<h1>Posts <%= @project.name %> (<%= @project.hours.to_i.round(1) %> h) (<%= @week %> h) (<%= @average %> h)</h1>
 
 <% if @posts.empty? %>
   <p>
