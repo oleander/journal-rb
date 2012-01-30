@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rails", "3.2.0"
 
 # DB
-gem "mysql2", "~> 0.3.7"
+gem "mysql2", "0.3.7"
 
 # View
 gem "haml"
