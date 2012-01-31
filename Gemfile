@@ -36,4 +36,5 @@ group :test do
   gem "launchy"
   gem "selenium"
   gem "rspec-rails"
+  gem "spork", "~> 1.0rc"
 end
