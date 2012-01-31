@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem "rails", "~> 3.2.1"
 
 # DB
-gem "mysql"#, "0.3.7"
+gem "mysql"
 
 # View
 gem "haml"
@@ -32,7 +32,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "mysql"
+  gem "factory_girl_rails"
   gem "rspec"
   gem "capybara"
   gem "launchy"
