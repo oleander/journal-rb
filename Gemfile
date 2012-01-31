@@ -38,4 +38,5 @@ group :test do
   gem "selenium"
   gem "rspec-rails"
   gem "spork", "0.9.0"
+  gem "guard-spork"
 end
