@@ -29,3 +29,10 @@ group :development, :test do
   gem "ruby-debug19", require: "ruby-debug"
   gem "sqlite3"
 end
+
+group :test do
+  gem "rspec"
+  gem "capybara"
+  gem "launchy"
+  gem "selenium"
+end
