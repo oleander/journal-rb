@@ -28,6 +28,7 @@ gem "omniauth", "~> 1.0.1", git: "git://github.com/intridea/omniauth.git"
 group :development, :test do
   gem "ruby-debug19", require: "ruby-debug"
   gem "sqlite3"
+  gem "foreman"
 end
 
 group :test do
