@@ -1,6 +1,8 @@
 require "rubygems"
 require "spork"
 require "spork/ext/ruby-debug"
+require "capybara/rails"
+require "database_cleaner"
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= "test"
@@ -12,7 +14,10 @@ Spork.prefork do
 
   RSpec.configure do |config|
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
-    config.use_transactional_fixtures = true
+    config.use_transactional_fixtures = false
+    config.before(:suite) { DatabaseCleaner.strategy = :truncation }
+    config.before(:each) { DatabaseCleaner.start }
+    config.after(:each) { DatabaseCleaner.clean }
     config.infer_base_class_for_anonymous_controllers = false
   end
 end
