@@ -4,8 +4,10 @@ require "spork/ext/ruby-debug"
 require "capybara/rails"
 require "database_cleaner"
 
+ENV["RAILS_ENV"] ||= "test"
+abort("RAILS_ENV != test") unless ENV["RAILS_ENV"] == "test"
+
 Spork.prefork do
-  ENV["RAILS_ENV"] ||= "test"
   require File.expand_path("../../config/environment", __FILE__)
   require "rspec/rails"
   require "rspec/autorun"
