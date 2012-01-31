@@ -24,3 +24,11 @@ describe "Project" do
     page.should have_content("My Super Project")
   end
 end
+
+describe "Post" do  
+  let(:user) { Factory(:user_with_project) }
+  
+  it "should have a project" do
+    user.should have(1).projects
+  end
+end

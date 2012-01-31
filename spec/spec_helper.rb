@@ -21,8 +21,11 @@ Spork.prefork do
     config.before(:each) { DatabaseCleaner.start }
     config.after(:each) { DatabaseCleaner.clean }
     config.infer_base_class_for_anonymous_controllers = false
+    config.include Factory::Syntax::Methods
   end
 end
 
 Spork.each_run do
+  Factory.factories.clear 
+  Factory.find_definitions
 end
