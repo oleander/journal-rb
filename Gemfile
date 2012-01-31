@@ -35,4 +35,5 @@ group :test do
   gem "capybara"
   gem "launchy"
   gem "selenium"
+  gem "rspec-rails"
 end
