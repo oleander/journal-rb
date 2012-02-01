@@ -31,4 +31,11 @@ describe "Post" do
   it "should have a project" do
     user.should have(1).projects
   end
+  
+  it "should be possible to create a post" do
+    visit new_project_post_path(user.projects.first)
+    fill_in "input", with: "My content"
+    submit_form
+    page.should have_content("My content")
+  end
 end
