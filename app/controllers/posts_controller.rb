@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       where(project_id: params[:project_id]).
       group("posts.project_id").
       where("posts.started_at BETWEEN ? and ?", time.beginning_of_week, time.end_of_week).first.try(:hours).to_i.round(1)
-    @average = (@project.hours.to_f / ((time.to_f - @project.created_at.to_i) / (60 * 60 * 7))).round(1)
+    @average = (@project.hours.to_f / ((time.to_f - @project.created_at.to_i) / (60 * 60 * 24 * 7))).round(1)
     
     unless params[:format] == "pdf"
       @posts = @posts.page(params[:page]).per(5)
