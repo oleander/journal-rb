@@ -2,8 +2,7 @@ class PostsController < ApplicationController
   respond_to :html, :pdf
   
   before_filter do
-    @project = current_user.
-      Project.
+    @project = Project.
       for_user(current_user).
       joins(:posts).
       select("projects.*, SUM(HOUR(TIMEDIFF(posts.ended_at, posts.started_at))) as hours").
