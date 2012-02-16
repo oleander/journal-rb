@@ -53,4 +53,5 @@ namespace :deploy do
   after "deploy:update", "deploy:copy_files"
   after "deploy:copy_files", "deploy:assets"
   after "deploy:assets", "deploy:cleanup"
+  after "deploy:cleanup", "deploy:migrate"
 end
