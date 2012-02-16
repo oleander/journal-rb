@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   
   before_filter do
     @project = current_user.
-      projects.
+      Project.
+      for_user(current_user).
       joins(:posts).
       select("projects.*, SUM(HOUR(TIMEDIFF(posts.ended_at, posts.started_at))) as hours").
       find(params[:project_id])
