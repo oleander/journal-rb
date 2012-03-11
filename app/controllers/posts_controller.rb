@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   
   def index
     time = Time.zone.now
-    @posts = Post.where(project_id: params[:project_id].to_i).order("posts.created_at DESC")
+    @posts = Post.where(project_id: params[:project_id].to_i).order("posts.started_at DESC")
 
     @week = Post.select("SUM(HOUR(TIMEDIFF(posts.ended_at, posts.started_at))) as hours").
       where(project_id: params[:project_id].to_i).
