@@ -31,7 +31,7 @@
 
   <% @posts.each do |post| %>
       <h2>
-        <%= post.created_at.strftime("%B %d") %> - 
+        <%= post.started_at.strftime("%B %d") %> - 
         <%= post.diff %>h 
       </h2>
       <hr class="dashed">

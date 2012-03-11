@@ -11,7 +11,7 @@
 
   <% @posts.each do |post| %>
       <h2>
-        <%= post.created_at.strftime("%B %d") %> - 
+        <%= post.started_at.strftime("%B %d") %> - 
         <%= post.diff %>h
         <% if current_user.own?(@project) %>
           <%= link_to image_tag("edit.png", class: "edit-icon"), edit_project_post_path(@project, post), class: "post", title: "Edit post" %> 
