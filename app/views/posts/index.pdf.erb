@@ -12,7 +12,7 @@
       By: <%= current_user.name || "Random Dude" %>
     </li>
     <li>
-      Created: <%= @project.created_at %>
+      Created: <%= Time.zone.now %>
     </li>
     <li>
       Time spent on project: <%= @project.hours %>h
